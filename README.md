@@ -48,11 +48,11 @@ If the page says that contract data can't be read, make sure that:
 
 - the Ethereum node is running the public chain.
 
-### Create a new SingleSignerAuthority
+### Create a new MultiSignerAuthority
 
 To create Your own authority You need to do this:
 
-1. Deploy a new instance of `MultiSignerAuthority`. This can not be done properly by passing bytecode to the [Mist wallet](https://github.com/ethereum/mist) I think, because it has constructor params. At least I had to use the source code, and it gave me some pretty whacky gas values. The bytecode and ABI can be found in `contracts/build`. It does not matter if you add it to the public chain (Homestead), the test-chain (Morden), or a local dev-chain.
+1. Deploy a new instance of `MultiSignerAuthority`. This can not be done properly by passing bytecode to the [Mist wallet](https://github.com/ethereum/mist) I think, because it has constructor params. At least I had to use the source code, and it gave me some pretty weird gas values. Anyways, the bytecode and ABI can be found in `contracts/build`. It does not matter if you add it to the public chain (Homestead), the test-chain (Morden), or a local dev-chain.
 
 2. Open `www/scripts/index.js` and change the `contractAddress` variable (line 7) to the new address.
 
@@ -62,7 +62,7 @@ To create Your own authority You need to do this:
 
 In addition to the RPC alert, you may now also get an alert that says the contract can't be read. In that case make sure that you updated the `index.js` file with the new contract address.
 
-If there is no blue `sign` button below the hash field, make sure that the current `coinbase` address is the same as the one used when deploying the contract.
+If there is no blue `sign` button below the hash field, make sure that the currently selected address is the same as the one used when deploying the contract.
 
 ### Testing the contract (node.js)
 
@@ -74,14 +74,4 @@ Contract tests are done using [QUnit](http://qunitjs.com/) against an [ethereumj
 
 3. cd into the `testserver` folder and run `testserver.js`. Wait for it to print `Ethereum test RPC server listening on port 8545`.
 
-4. Start a contract test in a web-browser. The tests currently available is:
-
-- `www/testing/ssa_contract_test.html` - Single Signer Authority
-
-- `www/testing/msa_contract_test.html` - Multi Signer Authority
-
-### Hacking
-
-If you want to edit the smart-contract you need to know how to code in Solidity. The Solidity project page can be found [here](http://solidity.readthedocs.org/en/latest/).
-
-A simple way to add more features to the contract is to copy the code from `contracts/src/SingleSignerAuthority.sol` into the [Online Solidity Compiler](https://chriseth.github.io/browser-solidity/). It has syntax highlighting and does real-time error checking, and even allow you to deploy the contract onto a simulated chain and interact with it - although the output is not formatted so it may be a bit hard to read. Either way, when you are happy with the edits you can just get the bytecode and ABI (interface) from the online compiler and put it into Mist (or whatever you want to use for deploying and interacting with the contract on-chain).
+4. Run `www/testing/contract_test.html` in a web-browser.
