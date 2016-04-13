@@ -1,0 +1,18 @@
+{
+  "module": "signers",
+  "units": [
+    [
+      "SingleSignerAuthority",
+      "MultiSignerAuthority"
+    ]
+  ],
+  "tests": [
+    "SingleSignerAuthorityTest",
+    "MultiSignerAuthorityTest"
+  ],
+  "compilerOptions": {
+    "bin": true,
+    "abi": true,
+    "optimize": true
+  }
+}

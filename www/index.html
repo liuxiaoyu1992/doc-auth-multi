@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>DocAuth</title>
+</head>
+<body>
+<div data-role="page" id="starting-page">
+
+</div>
+<div data-role="page" id="main-page">
+
+    <div data-role="header" class="header">
+        <h1 id="app-title">Document Signer</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+        <form>
+            <label for="hash-input">Hash:</label>
+            <input id="hash-input" name="hash" placeholder="0x26FA6C..." required/>
+            <button id="check-hash-button" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-search">
+                Check
+            </button>
+            <button id="sign-hash-button" class="ui-btn btn-add ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus"
+                    style="display: none;">Sign
+            </button>
+        </form>
+
+        <div id="error-msg" class="not-displayed">
+        </div>
+
+        <ul id="hash-data" data-role="listview" data-inset="true"
+            class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
+            <li data-role="list-divider" id="hash-data-title" class="ui-li-divider ui-bar-a"><h2>Hash Information</h2>
+            </li>
+            <li><h3>Hash</h3><span id="hash-data-hash"></span></li>
+            <li><h3>Signed by all</h3><span id="hash-data-signed">No</span></li>
+            <li><h3>Current Signatures</h3>
+                <ul id="current-signatures" data-role="listview" data-inset="true"
+                    class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
+                    <li>0xabcdefg</li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul id="ms-authority-data" data-role="listview" data-inset="true"
+            class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
+            <li data-role="list-divider" class="ui-li-divider ui-bar-a"><h2>Authority</h2></li>
+            <li><h3>Type</h3><span id="ms-authority-type"></span></li>
+            <li><h3>Authorized Signers</h3>
+                <ul id="ms-authorized-signers" data-role="listview" data-inset="true"
+                    class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
+                </ul>
+            </li>
+            <li><h3>Contract</h3><span id="ms-authority-contract"></span></li>
+        </ul>
+
+        <ul id="transactions" data-role="listview" data-inset="true"
+            class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
+            <li data-role="list-divider" class="ui-li-divider ui-bar-a"><h2>Transactions</h2></li>
+        </ul>
+
+    </div>
+    <footer data-role="footer" data-position="fixed">
+        <h4>My Address: <select id="my-address" data-inline="true"></select></h4>
+    </footer>
+
+</div>
+<script type="text/javascript" src="scripts/vendor/web3.min.js"></script>
+<script type="text/javascript" src="scripts/vendor/jquery-2.2.2.min.js"></script>
+<script type="text/javascript" src="scripts/vendor/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="scripts/vendor/bignumber.min.js"></script>
+<script type="text/javascript" src="scripts/index.js"></script>
+</body>
+</html>

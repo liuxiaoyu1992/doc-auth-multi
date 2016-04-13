@@ -1,0 +1,12 @@
+{
+  "name": "doc-auth-multi",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "bignumber.js": "^2.3.0",
+    "ethereumjs-testrpc": "^2.0.2",
+    "web3": "^0.15.3"
+  }
+}
