@@ -88,16 +88,10 @@
                 $("#hash-data-hash").html(hash);
                 $("#hash-data-signed").html(timestamp !== 0 ? new Date(timestamp*1000).toString() : "No");
                 var hashData = contract.hashData(hash);
-                console.log(hashData.toString(16));
                 var sArr = [];
                 for(var i = 0; i < signers.length; i++) {
-                    var sect = Math.floor(i / 8);
-                    console.log(sect);
-                    var posInSect = i & 8;
-                    console.log(posInSect);
                     var shifted = hashData.div(new BigNumber(2).pow(i));
                     var num = shifted.mod(2).toNumber();
-                    console.log(num);
                     if(num)
                         sArr.push(signers[i]);
                 }
