@@ -175,7 +175,22 @@
 
             });
         }
+
+
     });
+
+    $( "#my-address" )[0].onchange = function( event ) {
+        var addr = event.target.value;
+        var isAuth = false;
+        for (var i = 0; i < accounts.length; i++) {
+            if (accounts[i] === addr) {
+                isAuth = true;
+                break;
+            }
+        }
+        var signBtn = $("#sign-hash-button");
+        isAuth ? signBtn.show() : signBtn.hide();
+    };
 
     function verifySend(gasEstimate, from){
         var confirm = window.prompt("Estimated gas-cost for transaction: " + gasEstimate.toString() +
