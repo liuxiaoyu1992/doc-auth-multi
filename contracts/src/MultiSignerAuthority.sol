@@ -7,7 +7,7 @@ contract MultiSignerAuthority is Authority {
         uint len = signers.length;
         if (len == 0 || len > 192)
             throw;
-        // Write them to storage. Enforce uniqueness & lexical ordering.
+        // Write them to storage.
         assembly {
                 let i := 0
                 let startAddr := add(0x20, signers)
